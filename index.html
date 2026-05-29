@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tattoo Supply | Shop Profesional</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">YAKUZA<span>TATTOO</span></h1>
+            <div class="nav-tools">
+                <button id="btnSwitch" class="btn-switch">MODO: MINORISTA</button>
+
+                <div class="cart-icon" title="Ver mi pedido">
+                    <span class="icon">🛒</span>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="section-title">Insumos para Tatuadores</h2>
+        <div class="controles-tienda">
+            <div class="buscador-container">
+                <input type="text" id="buscador" placeholder="Buscar insumo (ej: TKTX, Pen)...">
+            </div>
+            <div id="filtros-categorias" class="filtros">
+                <button class="btn-filtro active" data-categoria="Todos">Todos</button>
+                <button class="btn-filtro" data-categoria="Higiene y Descartables">Higiene</button>
+                <button class="btn-filtro" data-categoria="Agujas y Cartuchos">Agujas</button>
+                <button class="btn-filtro" data-categoria="Anestesias">Anestesias</button>
+                <button class="btn-filtro" data-categoria="Maquinaria">Máquinas</button>
+                <button class="btn-filtro" data-categoria="Tintas">Tintas</button>
+            </div>
+        </div>
+        <section id="contenedor-productos" class="grid-productos">
+        </section>
+    </main>
+
+    <aside id="modal-carrito" class="modal-container">
+        <div class="modal-content">
+            <button id="cerrar-carrito" class="btn-close" aria-label="Cerrar carrito">X</button>
+
+            <header class="modal-header">
+                <h2>Tu Pedido</h2>
+            </header>
+
+            <hr>
+
+            <div id="items-carrito" class="items-scroll">
+            </div>
+
+            <footer class="carrito-footer">
+                <div class="total-container">
+                    <p class="total-texto">Total estimado:</p>
+                    <span id="total-precio">$0</span>
+                </div>
+
+                <div class="acciones-carrito">
+                    <button id="vaciar-carrito" class="btn-danger">Vaciar Carrito</button>
+                    <button id="finalizar-compra" class="btn-success">Finalizar por WhatsApp</button>
+                </div>
+            </footer>
+        </div>
+    </aside>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

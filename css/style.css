@@ -1,0 +1,343 @@
+/* VARIABLES GLOBALES */
+:root {
+    --bg-dark: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --gold: #d4af37;
+    --gold-hover: #f1c40f;
+    --text-light: #f5f5f5;
+    --danger: #e74c3c;
+    --success: #27ae60;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* HEADER Y NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: #000;
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-tools {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-switch {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-switch:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+.cart-icon {
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+#cart-count {
+    background: var(--gold);
+    color: #000;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
+/* GRID DE PRODUCTOS */
+.section-title {
+    text-align: center;
+    margin: 30px 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* CARTAS TIPO TARJETA */
+.card-producto {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, border-color 0.3s;
+    height: 100%;
+}
+.card-producto:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+}
+.card-producto img {
+    width: 100%;
+    height: 220px;
+    padding: 10px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    margin-bottom: 15px;
+}
+.card-producto:hover img {
+    transform: scale(1.1);
+}
+
+.info {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info small {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+} 
+.card-producto h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    min-height: 3rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.info h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.precio {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-add {
+    background: var(--gold);
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: var(--gold-hover);
+}
+
+/* MODAL CARRITO */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.modal-content {
+    background: #111;
+    border: 1px solid var(--gold);
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.items-scroll {
+    max-height: 350px;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding-right: 10px;
+}
+
+/* Estilo de fila en carrito */
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    padding: 10px 0;
+}
+
+.controles-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-qty {
+    background: #333;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carrito-footer {
+    border-top: 2px solid var(--gold);
+    padding-top: 15px;
+}
+
+.total-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.acciones-carrito {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+    border: none;
+    padding: 10px;
+    flex: 1;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+    border: none;
+    padding: 10px;
+    flex: 2;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* BUSCADOR Y FILTROS */
+.controles-tienda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 5%;
+    margin-bottom: 10px;
+}
+
+.buscador-container input {
+    width: 100%;
+    min-width: 300px;
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--gold);
+    color: var(--text-light);
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.buscador-container input:focus {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-filtro {
+    background: #222;
+    color: var(--text-light);
+    border: 1px solid #444;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-filtro:hover {
+    border-color: var(--gold);
+}
+
+.btn-filtro.active {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+    font-weight: bold;
+}
+
+.sin-resultados {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
